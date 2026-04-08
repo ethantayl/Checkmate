@@ -781,7 +781,9 @@ const CreateMonitorPage = () => {
 									helperText={fieldState.error?.message}
 									{...field}
 									value={field.value ?? 0}
-									onChange={(e) => field.onChange(Math.max(0, parseInt(e.target.value) || 0))}
+									onChange={(e) =>
+										field.onChange(Math.max(0, parseInt(e.target.value) || 0))
+									}
 									inputProps={{ min: 0 }}
 								/>
 							)}
@@ -811,7 +813,9 @@ const CreateMonitorPage = () => {
 											renderInput={(params) => (
 												<TextField
 													{...params}
-													fieldLabel={t("pages.createMonitor.form.escalationRules.escalationChannels")}
+													fieldLabel={t(
+														"pages.createMonitor.form.escalationRules.escalationChannels"
+													)}
 												/>
 											)}
 										/>
@@ -824,23 +828,25 @@ const CreateMonitorPage = () => {
 														key={notification.id}
 														width="100%"
 													>
-															<Typography flexGrow={1}>
-																{notification.notificationName}
-															</Typography>
-															<IconButton
-																size="small"
-																onClick={() => {
-																	field.onChange(
-																		(field.value ?? []).filter((id: string) => id !== notification.id)
-																	);
-																}}
-																aria-label="Remove escalation channel"
-															>
-																<Trash2 size={16} />
-															</IconButton>
-															{index < selectedChannels.length - 1 && <Divider />}
+														<Typography flexGrow={1}>
+															{notification.notificationName}
+														</Typography>
+														<IconButton
+															size="small"
+															onClick={() => {
+																field.onChange(
+																	(field.value ?? []).filter(
+																		(id: string) => id !== notification.id
+																	)
+																);
+															}}
+															aria-label="Remove escalation channel"
+														>
+															<Trash2 size={16} />
+														</IconButton>
+														{index < selectedChannels.length - 1 && <Divider />}
 													</Stack>
-											))}
+												))}
 											</Stack>
 										)}
 									</Stack>

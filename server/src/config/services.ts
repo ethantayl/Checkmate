@@ -244,7 +244,14 @@ export const initializeServices = async ({
 		notificationMessageBuilder
 	);
 
-	const incidentService = new IncidentService(logger, incidentsRepository, monitorsRepository, usersRepository, notificationMessageBuilder, notificationsService);
+	const incidentService = new IncidentService(
+		logger,
+		incidentsRepository,
+		monitorsRepository,
+		usersRepository,
+		notificationMessageBuilder,
+		notificationsService
+	);
 
 	const superSimpleQueueHelper = new SuperSimpleQueueHelper(
 		logger,

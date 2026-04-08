@@ -222,7 +222,9 @@ export class NotificationsService implements INotificationsService {
 			},
 		};
 
-		const tasks = notifications.map((notification) => this.send(notification, monitor, {} as MonitorStatusResponse, {} as MonitorActionDecision, notificationMessage));
+		const tasks = notifications.map((notification) =>
+			this.send(notification, monitor, {} as MonitorStatusResponse, {} as MonitorActionDecision, notificationMessage)
+		);
 		await Promise.all(tasks);
 	};
 }
